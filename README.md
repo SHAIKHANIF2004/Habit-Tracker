@@ -1,10 +1,5 @@
 <div align="center">
-  <img src="public/screenshot.png" alt="Progress Tracker Preview" width="100%">
-
-  <br />
-  <br />
-
-  # 📈 Premium Progress Tracker
+  <h1>📈 Premium Progress Tracker</h1>
 
   **A sleek, responsive, and data-driven habit tracking application.**  
   Track your daily goals, monitor consistency, and build long-lasting habits with a clean, editorial-inspired UI.
@@ -13,6 +8,10 @@
   [![MongoDB Backend](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb)](#)
   [![Node.js API](https://img.shields.io/badge/Backend-Express.js-white?logo=express)](#)
 
+  <br />
+  <br />
+
+  <img src="public/screenshot.png" alt="Progress Tracker Preview" width="100%">
 </div>
 
 ---
