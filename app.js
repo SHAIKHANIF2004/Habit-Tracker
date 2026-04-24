@@ -3,7 +3,7 @@ let data = { habits: [], checks: {}, currentYear: new Date().getFullYear(), curr
 
 async function loadData() {
   try {
-    const res = await fetch('http://localhost:3000/api/data');
+    const res = await fetch('/api/data');
     if (res.ok) {
       const parsed = await res.json();
       // Migration: if habits were stored as plain strings, convert them
@@ -25,7 +25,7 @@ async function loadData() {
 async function saveData(dataToSave) {
   const payload = dataToSave || data;
   try {
-    const res = await fetch('http://localhost:3000/api/data', {
+    const res = await fetch('/api/data', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
