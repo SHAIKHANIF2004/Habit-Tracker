@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Track your daily habits with a beautiful monthly habit tracker. Stay consistent, build streaks, and visualize your progress." />
+  <title>Monthly Habit Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1 id="month-title">NOVEMBER</h1>
+    </div>
+    <div class="header-right">
+      <button class="btn-nav" id="prev-month" title="Previous month (←)" aria-label="Previous month">◀</button>
+      <button class="btn-today" id="today-btn" title="Go to today">Today</button>
+      <button class="btn-nav" id="next-month" title="Next month (→)" aria-label="Next month">▶</button>
+      <button class="btn-export" id="export-btn" title="Export as CSV">⬇ CSV</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Streak Banner -->
+    <section class="streak-banner" id="streak-banner" style="display: none;">
+      <span class="streak-fire">🔥</span>
+      <span class="streak-text" id="streak-text">0 day streak</span>
+    </section>
+
+    <!-- Insights Cards -->
+    <section class="insights-section" id="insights-section">
+      <div class="insight-card">
+        <div class="insight-icon">📅</div>
+        <div class="insight-value" id="insight-best-day">—</div>
+        <div class="insight-label">Best Day</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🏆</div>
+        <div class="insight-value" id="insight-longest-streak">0</div>
+        <div class="insight-label">Longest Streak</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📊</div>
+        <div class="insight-value" id="insight-consistency">0%</div>
+        <div class="insight-label">Consistency</div>
+      </div>
+    </section>
+
+    <!-- Add Habit -->
+    <section class="add-habit-bar">
+      <input type="text" id="habit-input" placeholder="Add a new habit..." />
+      <button class="btn-add" id="add-habit-btn">+ Add Habit</button>
+    </section>
+
+    <!-- Grid Table -->
+    <section class="grid-section">
+      <div class="grid-wrapper">
+        <table class="tracker-table" id="tracker-table">
+        </table>
+      </div>
+    </section>
+
+    <!-- Bottom Row: Analysis + Chart -->
+    <section class="bottom-section">
+      <div class="analysis-box">
+        <h2>Analysis</h2>
+        <table class="analysis-table" id="analysis-table">
+          <thead>
+            <tr><th>Habit</th><th>Goal</th><th>Actual</th><th>Progress</th></tr>
+          </thead>
+          <tbody id="analysis-body"></tbody>
+        </table>
+      </div>
+      <div class="chart-box">
+        <h2>Daily Progress</h2>
+        <canvas id="progress-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Yearly Heatmap -->
+    <section class="heatmap-section">
+      <h2>Year in Review</h2>
+      <div class="heatmap-container">
+        <div class="heatmap-day-labels">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="heatmap-main">
+          <div class="heatmap-months" id="heatmap-months"></div>
+          <div class="heatmap-grid" id="heatmap-grid"></div>
+        </div>
+      </div>
+      <div class="heatmap-legend">
+        Less
+        <div class="heat-cell heat-lvl-0"></div>
+        <div class="heat-cell heat-lvl-1"></div>
+        <div class="heat-cell heat-lvl-2"></div>
+        <div class="heat-cell heat-lvl-3"></div>
+        <div class="heat-cell heat-lvl-4"></div>
+        More
+      </div>
+    </section>
+
+    <p class="quote" id="daily-quote">"Discipline is a habit."</p>
+
+    <!-- Keyboard hint -->
+    <p class="keyboard-hint">Use <kbd>←</kbd> <kbd>→</kbd> arrow keys to navigate months · <kbd>Ctrl+Z</kbd> to undo</p>
+
+  </main>
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>
